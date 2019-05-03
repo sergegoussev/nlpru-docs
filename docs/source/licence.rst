@@ -25,4 +25,4 @@ SOFTWARE.
 
 Contact
 =======
-Follow or DM me [@SergeGoussev](https://twitter.com/SergeGoussev)
+Follow or DM me `@SergeGoussev <https://twitter.com/SergeGoussev>`_. 
