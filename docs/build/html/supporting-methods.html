@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Supporting methods &mdash; nlpru-docs 0.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Licence" href="licence.html" />
+    <link rel="prev" title="Main Methods" href="main-methods.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nlpru-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome and overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-methods.html">Main Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supporting methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#convert-to-tweet-dictionary">Convert to tweet dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html#contact">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nlpru-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Supporting methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/supporting-methods.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="supporting-methods">
+<h1>Supporting methods<a class="headerlink" href="#supporting-methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="convert-to-tweet-dictionary">
+<h2>Convert to tweet dictionary<a class="headerlink" href="#convert-to-tweet-dictionary" title="Permalink to this headline">¶</a></h2>
+<p><strong>nlpru</strong> uses a dictionary method to process tweets – both to categorize the <strong>topics</strong> and to assess <strong>conversation thread</strong> affects. For this it uses a dictionary structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_dict</span> <span class="p">{</span>
+    <span class="s2">&quot;tweet id&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;tweet text is stored here&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;other vars are stored in a list here&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you want to utilize the method manually, you require:</p>
+<p>&#64;input parameters:</p>
+<ul class="simple">
+<li><p><strong>tweet_list</strong> – input the tweets as a list. In this case, you must specify the <strong>location</strong> of the tweet text and the tweet id in the list (counting from 0):</p>
+<ul>
+<li><p><strong>tweet_text_index</strong> – specify the integer location of the tweet within the each tuple – for ex:</p></li>
+<li><p><strong>tweet_id_index</strong> – specify the integer location of the tweet id in the <em>tweet_list</em>. For ex:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tweet_text_index</span> <span class="pre">=</span> <span class="pre">[('twtid','twt_text),...],</span> <span class="pre">tweet_text_index=1,</span> <span class="pre">tweet_id_index=0</span></code></p></li>
+</ul>
+</li>
+<li><p><em>NOTE</em>: the resulting dictionary is structured in order of input under the <code class="docutils literal notranslate"><span class="pre">other</span></code> category. In other words, the dictionary is structured as:</p></li>
+</ul>
+</li>
+</ul>
+<p>And the folowing steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">Convert_to_tweet_dictionary</span>
+
+<span class="n">tweet_dict</span> <span class="o">=</span> <span class="n">Convert_to_tweet_dictionary</span><span class="p">(</span>
+    <span class="n">tweet_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;tweet id&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet text&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;userid or other info...&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+    <span class="n">tweet_text_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">tweet_id_index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="licence.html" class="btn btn-neutral float-right" title="Licence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="main-methods.html" class="btn btn-neutral float-left" title="Main Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, @sergegoussev
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

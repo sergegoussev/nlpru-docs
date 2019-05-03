@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Main Methods &mdash; nlpru-docs 0.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Supporting methods" href="supporting-methods.html" />
+    <link rel="prev" title="Welcome and overview" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nlpru-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome and overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#semantics">Semantics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clean-document">Clean_document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-word">Check_word</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#topic-analysis">Topic Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-conversation-affects-to-topics">Add conversation affects to topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-methods.html">Supporting methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html#contact">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nlpru-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Main Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/main-methods.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="main-methods">
+<h1>Main Methods<a class="headerlink" href="#main-methods" title="Permalink to this headline">¶</a></h1>
+<p>The following walks through the methods availible</p>
+<div class="section" id="semantics">
+<h2>Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
+<p>If you want to determine <em>cosine similarity</em> between documents, you can use this method. You can use this for two tweets, two sets of tweets concatenated into 2 strings, or really any 2 string objects. The method underlying it is tf-idf.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">Similarity</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Similiarity</span><span class="p">()</span>
+
+<span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc1</span><span class="p">,</span> <span class="n">doc2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">Get_similarity</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Clean allows the preprocessing of text, with two methods availible: one to clean the document (i.e. the tweet or post), and another to check whether a word should be included in subsequent bag-of-words analysis – to remove stop words, emojis, etc.</p>
+<div class="section" id="clean-document">
+<h3>Clean_document<a class="headerlink" href="#clean-document" title="Permalink to this headline">¶</a></h3>
+<p>This method takes a tweet and cleans it by removing from it Twitter perticulars, such as <code class="docutils literal notranslate"><span class="pre">RT</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;username</span></code> symbols.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="s2">&quot;Все говорят забудь его, забудь... а вот вы можете ...&quot;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Clean_document</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="c1">#&quot;Все говорят забудь его забудь а вот вы можете&quot;</span>
+</pre></div>
+</div>
+<p>Parameters with defaults:</p>
+<ul class="simple">
+<li><p>remove_RTs = True</p></li>
+<li><p>remove_hashtags = True</p></li>
+<li><p>remove_mentions = True</p></li>
+<li><p>remove_urls = True</p></li>
+<li><p>remove_emoji = True</p></li>
+<li><p>remove_swears = False</p></li>
+<li><p>remove_special_chars = True</p></li>
+</ul>
+</div>
+<div class="section" id="check-word">
+<h3>Check_word<a class="headerlink" href="#check-word" title="Permalink to this headline">¶</a></h3>
+<p>The method validates whether a specific word can be used for analysis</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span> 
+<span class="n">raw</span> <span class="o">=</span> <span class="s2">&quot;Все говорят забудь его, забудь... а вот вы можете ...&quot;</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">Check_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check_word returns a dictionary with a logical test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok OR empty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="s2">&quot;clean word if applicable or NA&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;твердил&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">Check_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="c1">#твердил {&#39;status&#39;: &#39;ok&#39;, &#39;word&#39;: &#39;твердить&#39;}</span>
+
+<span class="c1">#a few other examples:</span>
+<span class="c1">#Можно {&#39;status&#39;: &#39;empty&#39;, &#39;word&#39;: &#39;&#39;}</span>
+<span class="c1">#слабому {&#39;status&#39;: &#39;ok&#39;, &#39;word&#39;: &#39;слабый&#39;}</span>
+<span class="c1">#имеет {&#39;status&#39;: &#39;ok&#39;, &#39;word&#39;: &#39;иметь&#39;}</span>
+</pre></div>
+</div>
+<p>Parameters with defaults:</p>
+<ul class="simple">
+<li><p>lemmatize = True</p></li>
+<li><p>remove_proper_nouns = True</p></li>
+<li><p>allow_acronyms = False</p></li>
+<li><p>exclude_english_words = True</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="topic-analysis">
+<h2>Topic Analysis<a class="headerlink" href="#topic-analysis" title="Permalink to this headline">¶</a></h2>
+<p>To assign tweets topics, you can specify the keywords you want to categorize a topic to, and <em>nlpru</em> will take care of the tagging for you.</p>
+<p>&#64;input parameters for method:</p>
+<ul>
+<li><p><strong>dictionary_of_topics</strong> – specify the topics as dictionary keys and keywords as values for each topic you wish to categorize. For ex:</p>
+  <details><summary>See example of topic dictionary</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">topic_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;topic 1&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;contains&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;word1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;word2&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;not&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;word3&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;topic 2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;contains&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;word4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;word5&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;topic 3&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;word6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;word7&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+  </details></li>
+<li><p>Enter the tweets you would like to convert:</p>
+<ul class="simple">
+<li><p><strong>tweet_dict</strong> – dictionary of tweets and tweet text;</p></li>
+<li><p>or you could input tweets as a list, hence you should have the following inputs:</p>
+<ul>
+<li><p><strong>tweet_list</strong></p></li>
+<li><p><strong>tweet_text_index</strong></p></li>
+<li><p><strong>tweet_id_index</strong></p></li>
+<li><p>For more information on these inputs, see the <a class="reference external" href="#convert-to-tweet-dictionary"><strong>tweet dictionary</strong> construction method</a> to convert the input into a dictionary.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<details><summary>See Python example</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">FindTopics</span>
+
+<span class="n">tweet_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;вот почему б не указать&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;наш Самарский расследование&quot;</span><span class="p">},</span>
+    <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;вот он наш не бот&quot;</span><span class="p">},</span>
+    <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;можно обратиться напрямую&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;какое расследование&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">topic_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;topic 1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;contains&#39;</span><span class="p">:[</span><span class="s2">&quot;почему&quot;</span><span class="p">,</span> <span class="s2">&quot;наш&quot;</span><span class="p">],</span><span class="s1">&#39;not&#39;</span><span class="p">:[</span><span class="s1">&#39;бот&#39;</span><span class="p">]},</span>
+    <span class="s2">&quot;topic 2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;contains&#39;</span><span class="p">:[</span><span class="s2">&quot;расследование&quot;</span><span class="p">,</span> <span class="s2">&quot;какой&quot;</span><span class="p">]},</span>
+    <span class="s2">&quot;topic 3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;бот&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">#first call the overall method and give it the tweets as input</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">FindTopics</span><span class="p">(</span><span class="n">tweet_dict</span><span class="o">=</span><span class="n">tweet_dict</span><span class="p">)</span> 
+            
+<span class="c1">#now categorize the tweets by the keyword topic assigned</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">Keyword_Match</span><span class="p">(</span><span class="n">topic_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will yield a result of the following categories:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;вот почему б не указать&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clean_words&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;почему&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;указать&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;topic 1&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;наш Самарский расследование&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clean_words&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;наш&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;самарский&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;расследование&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;applies to 2 topics&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;вот он наш не бот&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clean_words&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;наш&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;бот&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;topic 3&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;можно обратиться напрямую&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clean_words&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;обратиться&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;напрямую&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;none detected&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;какое расследование&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clean_words&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;какой&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;расследование&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;topic 2&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<div class="section" id="add-conversation-affects-to-topics">
+<h2>Add conversation affects to topics<a class="headerlink" href="#add-conversation-affects-to-topics" title="Permalink to this headline">¶</a></h2>
+<p>As tweets are not isolated in spacce but are usually part of a conversation thread, often with other tweets in a thread not using the listened to keywords, you can use this method to include conversation thread affects and categorize all <em>downstream</em> tweets as also on the parent tweet topic.</p>
+<p>&#64;parameters (all optional, the method skips those not specified):</p>
+<ul class="simple">
+<li><p><strong>quote_list</strong> – list of tweets quoted by other tweets</p></li>
+<li><p><strong>reply_list</strong> – list of tweets replying to other other tweets</p></li>
+<li><p><strong>retweet_list</strong> – list of retweets, where one tweet retweets another</p></li>
+<li><p>Also, input the tweets you would like to convert:</p>
+<ul>
+<li><p><strong>tweet_dict</strong> – dictionary of tweets and tweet text;</p></li>
+<li><p>or you could input tweets as a list, hence you should have the following inputs:</p>
+<ul>
+<li><p><strong>tweet_list</strong></p></li>
+<li><p><strong>tweet_text_index</strong></p></li>
+<li><p><strong>tweet_id_index</strong></p></li>
+<li><p>For more information on these inputs, see the <a class="reference external" href="#convert-to-tweet-dictionary"><strong>tweet dictionary</strong> construction method</a> to convert the input into a dictionary.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>For example, first find topics using the <code class="docutils literal notranslate"><span class="pre">FindTopics</span></code> method, then use the output dict to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">Conversations</span>
+
+<span class="n">replies</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;6&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">)]</span>
+    
+<span class="n">c</span> <span class="o">=</span> <span class="n">Conversations</span><span class="p">(</span><span class="n">reply_list</span><span class="o">=</span><span class="n">replies</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">Recategorize_topics</span><span class="p">(</span><span class="n">topic_for_which_to_check</span><span class="o">=</span><span class="s2">&quot;topic 1&quot;</span><span class="p">,</span> <span class="n">tweet_dict</span><span class="o">=</span><span class="n">tweet_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a full walkthrouh of the reasons why conversation thread affects need to be checked, see  <a class="reference external" href="../examples/Categorizing_by_topic_using_conversation_threads.ipynb">jupyter notebook walkthrough</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="supporting-methods.html" class="btn btn-neutral float-right" title="Supporting methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README.html" class="btn btn-neutral float-left" title="Welcome and overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, @sergegoussev
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
