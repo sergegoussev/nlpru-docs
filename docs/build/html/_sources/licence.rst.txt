@@ -25,4 +25,4 @@ SOFTWARE.
 
 Contact
 =======
-For questions see Serge Goussev
+Follow or DM me [@SergeGoussev](https://twitter.com/SergeGoussev)

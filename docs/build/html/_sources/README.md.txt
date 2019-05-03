@@ -1,6 +1,6 @@
 # Welcome and overview
 
-As you probably read in the home page, **nlpru** is a library meant to simplify Natural Language Processing and analysis of Russian text. While it is built for *Twitter* and for Russian language text, it can be used for Ukrainian text as well, and certain *methods* can be used as well as they are not language specific.
+As you probably read in the home page, [**nlpru**](https://github.com/sergegoussev/nlpru) is a library meant to simplify Natural Language Processing and analysis of Russian text. While it is built for *Twitter* and for Russian language text, it can be used for Ukrainian text as well, and certain *methods* can be used as well as they are not language specific.
 
 ## Reasons to use **nlpru** 
 
