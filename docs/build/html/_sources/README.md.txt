@@ -34,7 +34,8 @@ tweet = """п***ц какое расследование,почему б не у
 
 #use the method and save its output
 clean_tweet = c.Clean_document(tweet, remove_swears=True)
-```
 
-If we print `clean_tweet`, it will return: 
-`"какое расследование, почему б не указать, что наш Самарский ио @DAzaroff, вот он не бот, можно обратиться напрямую, не откажет"`
+#printing clean_tweet we get:
+print(clean_tweet)
+#"какое расследование, почему б не указать, что наш Самарский ио @DAzaroff, вот он не бот, можно обратиться напрямую, не откажет"
+```
