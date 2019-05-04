@@ -226,4 +226,4 @@ c = Conversations(reply_list=replies)
 t = c.Recategorize_topics(topic_for_which_to_check="topic 1", tweet_dict=tweet_dict)
 ```
     
-For a full walkthrouh of the reasons why conversation thread affects need to be checked, see  [jupyter notebook walkthrough](../examples/Categorizing_by_topic_using_conversation_threads.ipynb).
+For a full walkthrouh of the reasons why conversation thread affects need to be checked, see  [jupyter notebook walkthrough](https://github.com/sergegoussev/nlpru/blob/master/examples/Topic_and_conversation_thread_categorization_simple.ipynb).

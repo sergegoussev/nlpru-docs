@@ -18,15 +18,23 @@ Or you can download the repo zip, and then use pip in the folder:
 
     >>> pip install .
 
-## Main methods
+## Quickstart
 
-In the current version, there are 4 main methods and one supporting method available.
+Once installed, you can call each method you require by importing it from nlpru. For example, let's say you have some tweets to preprocess:
 
-Main methods:
-* [Analyze document semantics and cosine similairty](methods.md#semantics)
-* [Clean or preprocess text](methods.md#preprocessing)
-* [Categorize topics of tweets](methods.md#topic-analysis)
-* [Adding Conversation thread effects to Topic Analysis](methods.md#add-conversation-affects-to-topics) 
+```python
+#import method
+from nlpru import Clean
 
-Supporting methods:
-* **nlpru** uses a dictionary method to support the **Topic Analysis** and **Conversation thread** methods. If you want to manually use the dictionary conversion method, you can read [about how to use it here](methods.md#convert-to-tweet-dictionary)
+#initiate the method
+c = Clean()
+
+tweet = """п***ц какое расследование,почему б не указать,что наш Самарский ио @D_Azaroff
+ ,вот он не бот,можно обратиться напрямую,не откажет"""
+
+#use the method and save its output
+clean_tweet = c.Clean_document(tweet, remove_swears=True)
+```
+
+If we print `clean_tweet`, it will return: 
+`"какое расследование, почему б не указать, что наш Самарский ио @DAzaroff, вот он не бот, можно обратиться напрямую, не откажет"`
