@@ -59,8 +59,8 @@ html_context = {
     "display_github": True,
     "github_host": "github.com",
     "github_user": "sergegoussev",
-    "github_repo": 'nlpru',
-    "github_version": "master/",
+    "github_repo": 'nlpru-docs',
+    "github_version": "master/docs/source/",
 }
 # this is the default....
 # html_show_sourcelink = True
