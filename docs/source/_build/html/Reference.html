@@ -184,18 +184,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input_document</strong> – </p></li>
-<li><p><strong>remove_RTs</strong> – </p></li>
-<li><p><strong>remove_hashtags</strong> – </p></li>
-<li><p><strong>remove_mentions</strong> – </p></li>
-<li><p><strong>remove_urls</strong> – </p></li>
-<li><p><strong>remove_emoji</strong> – </p></li>
-<li><p><strong>remove_swears</strong> – </p></li>
-<li><p><strong>remove_special_chars</strong> – </p></li>
+<li><p><strong>input_document</strong> – the document (or tweet) as a string</p></li>
+<li><p><strong>remove_RTs</strong> – remove the <cite>‘RT (****) ‘</cite> from the front of the tweet text. Nothing is put in its place.
+(Ex: <cite>“RT &#64;johnsmith hey there!”</cite> =&gt; <cite>“hey there!”</cite>)</p></li>
+<li><p><strong>remove_hashtags</strong> – remove hashtags present from the input_document. Works by simply replacing the whole hashtag with nothing.</p></li>
+<li><p><strong>remove_mentions</strong> – remove a mentioned user. Works by simply replacing the mentioned user handle with nothing.</p></li>
+<li><p><strong>remove_urls</strong> – remove any urls present in the input_document. Works on http and https, including tiny urls. Simply replaces the url present with nothing.</p></li>
+<li><p><strong>remove_emoji</strong> – remove any emojis found in the input_document with nothing.</p></li>
+<li><p><strong>remove_swears</strong> – remove russian swear words from the input_documents with nothing.</p></li>
+<li><p><strong>remove_special_chars</strong> – remove special characters, such as symbols, ampersands, arrows, etc. (Full list: <cite>“[→©ђ°ѓ¡||=/▶►‼?~é̄̃</cite>«»;џ�_●▪™“„#ї*&amp;%¿$-”&lt;&gt;’<a href="#id1"><span class="problematic" id="id2">|</span></a>/?~`+：«»;_“„&amp;^№€…)(—]”<a href="#id3"><span class="problematic" id="id4">`</span></a>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>formatted string</p>
+<dd class="field-even"><p>clean formatted string</p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,16 +209,14 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>word</strong> – input the word to check</p></li>
-<li><p><strong>remove_proper_nouns</strong> – </p></li>
-<li><p><strong>allow_acronyms</strong> – </p></li>
-<li><p><strong>exclude_english_words</strong> – exclude english words from the Russian text</p></li>
+<li><p><strong>lemmatize</strong> – lemmatize the word to get the root</p></li>
+<li><p><strong>remove_proper_nouns</strong> – check to see if the words is a noun, in which case do not return it in the response object and return a status of <cite>status: ‘empty’</cite></p></li>
+<li><p><strong>allow_acronyms</strong> – check if the word is an acronym, if so, do not return in.</p></li>
+<li><p><strong>exclude_english_words</strong> – exclude english words from the Russian text.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Praram lemmatize</dt>
-<dd class="field-even"><p>lemmatize the word to get the root</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><p>response dictionary of the word and the status, conditional on the cleaning  done, and based on the specified parameters</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><p>response dictionary of the word and the status, conditional on the cleaning  done, and based on the specified parameters</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">#&#39;ok&#39; or &#39;empty&#39; possible</span>
     <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">#&#39;word&#39; or &#39;&#39; possible</span>
@@ -236,31 +235,36 @@
 <dl class="class">
 <dt id="Semantics">
 <em class="property">class </em><code class="descname">Semantics</code><span class="sig-paren">(</span><span class="optional">[</span><em>clean=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Semantics" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Cleaner object works by cleaning a specified piece of text for natural language analysis</p>
+<dd><p>Semantics is an objects that supports the extraction of one capability - calculating semantic similarity between two documents.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>clean</strong> – default for Russian text, no other languages are yet availible</p>
+<dd class="field-odd"><p><strong>clean</strong> – <p>lean the document to extract social media type content that will negatively impact analysis, such as hashtags, mentions urls, emoji, etc. Attribute_types (specify what you want):</p>
+<ul class="simple">
+<li><p>None - do not clean document</p></li>
+<li><p>’All’ - remove everything (full list below)</p></li>
+<li><p>[‘RT’,’hashtags’,’mentions’,’urls’,’emoji’,’swears’,’special_chars’] - if you want to remove specific things, specify any from the above as strings in a list, such as [‘RT’,’mentions’] and only the specified ones will be cleaned.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="Get_similarity">
-<code class="descname">Get_similarity</code><span class="sig-paren">(</span><span class="optional">[</span><em>docs_list</em><span class="optional">]</span><span class="optional">[</span>, <em>use_normal_form=False</em><span class="optional">]</span><span class="optional">[</span>, <em>clean_documents=True</em><span class="optional">]</span><span class="optional">[</span>, <em>stop_words=None</em><span class="optional">]</span><span class="optional">[</span>, <em>similarity_to='first'</em><span class="optional">]</span><span class="optional">[</span>, <em>use_ngrams=True</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Get_similarity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check_word - checks if the word is good to be included for natural language analysis. It takes the specified word, and returns the a result dictionary.</p>
+<code class="descname">Get_similarity</code><span class="sig-paren">(</span><span class="optional">[</span><em>docs_list</em><span class="optional">]</span><span class="optional">[</span>, <em>use_normal_form=False</em><span class="optional">]</span><span class="optional">[</span>, <em>clean_documents=True</em><span class="optional">]</span><span class="optional">[</span>, <em>stop_words=None</em><span class="optional">]</span><span class="optional">[</span>, <em>use_ngrams=True</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Get_similarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cosine similarity betweet two documents. Behind the scenes, sklearn’s tf-idf approach (<cite>TfidfVectorizer()</cite>) is used.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>docs_list</strong> – </p></li>
-<li><p><strong>use_normal_form</strong> – </p></li>
-<li><p><strong>clean_documents</strong> – </p></li>
-<li><p><strong>stop_words</strong> – </p></li>
-<li><p><strong>similarity_to</strong> – </p></li>
-<li><p><strong>use_ngrams</strong> – </p></li>
+<li><p><strong>docs_list</strong> – a list of documents for which to get semantic similarity</p></li>
+<li><p><strong>use_normal_form</strong> – lemmatization of all words present in the documents</p></li>
+<li><p><strong>clean_documents</strong> – if <cite>True</cite>, utilize the <cite>nlpru.Cleaner.Clean_documents()</cite> method.</p></li>
+<li><p><strong>stop_words</strong> – if you want to use a specific set of stop words, specify them as a list.</p></li>
+<li><p><strong>use_ngrams</strong> – if you want to use 2-3 n-grams for the semantic similarity specify <cite>True</cite>. Otherwize, unigrams (i.e. single words) will be used.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>numpy array representing cosine similarity matrix</p>
+<dd class="field-even"><p>depending on ‘similarity_to’ param, either similarity row vector of the first document to all others docs is returned, or (if ‘All’ is specified) matrix of of all docs against all others</p>
 </dd>
 </dl>
 </dd></dl>
