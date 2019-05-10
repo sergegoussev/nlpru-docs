@@ -58,7 +58,7 @@ Calculate semantic similarity between two documents
 
     Semantics is an objects that supports the extraction of one capability - calculating semantic similarity between two documents.
 
-    :param clean: lean the document to extract social media type content that will negatively impact analysis, such as hashtags, mentions urls, emoji, etc. Attribute_types (specify what you want):
+    :param clean: clean the document to extract social media type content that will negatively impact analysis, such as hashtags, mentions urls, emoji, etc. Attribute_types (specify what you want):
             
             - None - do not clean document
             - 'All' - remove everything (full list below)

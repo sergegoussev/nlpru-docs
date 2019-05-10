@@ -1,6 +1,6 @@
 # Main Methods
 
-The following walks through the methods availible
+The following walks through the methods availible in **nlpru**. For reference of all methods and the parameters/outputs of each, see the article on [Reference of all methods](Reference)
 
 ## Semantics
 
@@ -27,15 +27,6 @@ raw = "Все говорят забудь его, забудь... а вот вы
 c.Clean_document(raw)
 #"Все говорят забудь его забудь а вот вы можете"
 ```
-
-Parameters with defaults:
-* remove_RTs = True
-* remove_hashtags = True
-* remove_mentions = True
-* remove_urls = True
-* remove_emoji = True
-* remove_swears = False
-* remove_special_chars = True
 
 
 ### Check_word
@@ -74,15 +65,10 @@ print(word, result)
 #имеет {'status': 'ok', 'word': 'иметь'}
 ```
 
-Parameters with defaults:
-* lemmatize = True 
-* remove_proper_nouns = True
-* allow_acronyms = False 
-* exclude_english_words = True
-
 ## Topic Analysis
 
 To assign tweets topics, you can specify the keywords you want to categorize a topic to, and *nlpru* will take care of the tagging for you. 
+
 
 @input parameters for method:
 * **dictionary_of_topics** -- specify the topics as dictionary keys and keywords as values for each topic you wish to categorize. For ex:
@@ -112,17 +98,13 @@ To assign tweets topics, you can specify the keywords you want to categorize a t
         ]
     }
     ```
-
     </details>
+
 * Enter the tweets you would like to convert: 
     * **tweet_dict** -- dictionary of tweets and tweet text;
     * or you could input tweets as a list, hence you should have the following inputs:
-        * **tweet_list**
-        * **tweet_text_index**
-        * **tweet_id_index**
         * For more information on these inputs, see the [**tweet dictionary** construction method](#convert-to-tweet-dictionary) to convert the input into a dictionary.
     
-
 <details><summary>See Python example</summary>
 
 ```python
@@ -196,8 +178,8 @@ This will yield a result of the following categories:
     }
 }
 ```
-
 </details>
+
 
 ## Add conversation affects to topics
 
@@ -210,9 +192,6 @@ As tweets are not isolated in spacce but are usually part of a conversation thre
 * Also, input the tweets you would like to convert: 
     * **tweet_dict** -- dictionary of tweets and tweet text;
     * or you could input tweets as a list, hence you should have the following inputs:
-        * **tweet_list**
-        * **tweet_text_index**
-        * **tweet_id_index**
         * For more information on these inputs, see the [**tweet dictionary** construction method](#convert-to-tweet-dictionary) to convert the input into a dictionary.
     
 For example, first find topics using the `FindTopics` method, then use the output dict to:

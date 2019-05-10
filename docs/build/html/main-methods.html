@@ -166,7 +166,7 @@
             
   <div class="section" id="main-methods">
 <h1>Main Methods<a class="headerlink" href="#main-methods" title="Permalink to this headline">¶</a></h1>
-<p>The following walks through the methods availible</p>
+<p>The following walks through the methods availible in <strong>nlpru</strong>. For reference of all methods and the parameters/outputs of each, see the article on <a class="reference internal" href="Reference.html"><span class="doc">Reference of all methods</span></a></p>
 <div class="section" id="semantics">
 <h2>Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
 <p>If you want to determine <em>cosine similarity</em> between documents, you can use this method. You can use this for two tweets, two sets of tweets concatenated into 2 strings, or really any 2 string objects. The method underlying it is tf-idf.</p>
@@ -189,16 +189,6 @@
 <span class="c1">#&quot;Все говорят забудь его забудь а вот вы можете&quot;</span>
 </pre></div>
 </div>
-<p>Parameters with defaults:</p>
-<ul class="simple">
-<li><p>remove_RTs = True</p></li>
-<li><p>remove_hashtags = True</p></li>
-<li><p>remove_mentions = True</p></li>
-<li><p>remove_urls = True</p></li>
-<li><p>remove_emoji = True</p></li>
-<li><p>remove_swears = False</p></li>
-<li><p>remove_special_chars = True</p></li>
-</ul>
 </div>
 <div class="section" id="check-word">
 <h3>Check_word<a class="headerlink" href="#check-word" title="Permalink to this headline">¶</a></h3>
@@ -230,13 +220,6 @@
 <span class="c1">#имеет {&#39;status&#39;: &#39;ok&#39;, &#39;word&#39;: &#39;иметь&#39;}</span>
 </pre></div>
 </div>
-<p>Parameters with defaults:</p>
-<ul class="simple">
-<li><p>lemmatize = True</p></li>
-<li><p>remove_proper_nouns = True</p></li>
-<li><p>allow_acronyms = False</p></li>
-<li><p>exclude_english_words = True</p></li>
-</ul>
 </div>
 </div>
 <div class="section" id="topic-analysis">
@@ -274,9 +257,6 @@
 <li><p><strong>tweet_dict</strong> – dictionary of tweets and tweet text;</p></li>
 <li><p>or you could input tweets as a list, hence you should have the following inputs:</p>
 <ul>
-<li><p><strong>tweet_list</strong></p></li>
-<li><p><strong>tweet_text_index</strong></p></li>
-<li><p><strong>tweet_id_index</strong></p></li>
 <li><p>For more information on these inputs, see the <a class="reference external" href="#convert-to-tweet-dictionary"><strong>tweet dictionary</strong> construction method</a> to convert the input into a dictionary.</p></li>
 </ul>
 </li>
@@ -366,9 +346,6 @@
 <li><p><strong>tweet_dict</strong> – dictionary of tweets and tweet text;</p></li>
 <li><p>or you could input tweets as a list, hence you should have the following inputs:</p>
 <ul>
-<li><p><strong>tweet_list</strong></p></li>
-<li><p><strong>tweet_text_index</strong></p></li>
-<li><p><strong>tweet_id_index</strong></p></li>
 <li><p>For more information on these inputs, see the <a class="reference external" href="#convert-to-tweet-dictionary"><strong>tweet dictionary</strong> construction method</a> to convert the input into a dictionary.</p></li>
 </ul>
 </li>
