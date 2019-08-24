@@ -7,8 +7,8 @@ The following walks through the methods availible in **nlpru**. For reference of
 If you want to determine *cosine similarity* between documents, you can use this method. You can use this for two tweets, two sets of tweets concatenated into 2 strings, or really any 2 string objects. The method underlying it is tf-idf.
 
 ```python
-from nlpru import Similarity
-s = Similiarity()
+from nlpru import Semantics
+s = Semantics()
 
 docs = [doc1, doc2]
 print(s.Get_similarity(doc))

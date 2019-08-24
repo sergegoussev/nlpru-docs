@@ -170,8 +170,8 @@
 <div class="section" id="semantics">
 <h2>Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
 <p>If you want to determine <em>cosine similarity</em> between documents, you can use this method. You can use this for two tweets, two sets of tweets concatenated into 2 strings, or really any 2 string objects. The method underlying it is tf-idf.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">Similarity</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">Similiarity</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nlpru</span> <span class="kn">import</span> <span class="n">Semantics</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Semantics</span><span class="p">()</span>
 
 <span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc1</span><span class="p">,</span> <span class="n">doc2</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">Get_similarity</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
